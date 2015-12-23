@@ -1,0 +1,16 @@
+name: LimitCrafting
+main: me.tezk.limitcrafting.LimitCraftingPlugin
+version: 4.0
+author: Tom Micallef
+description: Limit players from crafting items.
+
+commands:
+  limitcrafting:
+    description: LimitCrafting reload command
+    usage: /<command>
+
+permissions:
+  limitcrafting.bypass:
+    default: op
+  limitcrafting.reload:
+    default: op
