@@ -8,7 +8,10 @@ import org.bukkit.command.CommandSender;
 
 /**
  * Created by Tom Micallef on 23/12/2015.
+ * Altered by Pizza on 29/07/2019.
  */
+
+@SuppressWarnings("unused")
 public class LimitCraftingCommand implements CommandExecutor {
 	
 	private final LimitCraftingPlugin plugin;

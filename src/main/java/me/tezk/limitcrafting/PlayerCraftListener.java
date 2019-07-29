@@ -11,7 +11,9 @@ import org.bukkit.inventory.ItemStack;
 
 /**
  * Created by Tom Micallef on 23/12/2015.
+ * Altered by Pizza on 29/07/2019.
  */
+
 public class PlayerCraftListener implements Listener {
 	
 	private final LimitCraftingPlugin plugin;
@@ -24,6 +26,7 @@ public class PlayerCraftListener implements Listener {
 		final boolean enabled = plugin.isPlugEnabled();
 		final String message = plugin.getMessage();
 		final boolean blockAll = plugin.isBlockAll();
+		final boolean notifyPlayer = plugin.isNotified();
 		final List<String> items = plugin.getItems();
 		
 		if (!(enabled)) return;
@@ -32,8 +35,11 @@ public class PlayerCraftListener implements Listener {
 		if (blockAll) {
 			e.setCancelled(true);
 			final ItemStack is = e.getCurrentItem();
-			e.getWhoClicked().sendMessage(ChatColor.translateAlternateColorCodes('&', message)
-					.replace("%item%", is.getData().getItemType().name().toLowerCase()));
+			if (notifyPlayer)
+			{
+				e.getWhoClicked().sendMessage(ChatColor.translateAlternateColorCodes('&', message)
+						.replace("%item%", is.getData().getItemType().name().toLowerCase()));
+			}
 			return;
 		}
 		
@@ -48,8 +54,11 @@ public class PlayerCraftListener implements Listener {
 			}
 			if (e.getRecipe().getResult().isSimilar(is)) {
 				e.setCancelled(true);
-				e.getWhoClicked().sendMessage(ChatColor.translateAlternateColorCodes('&', message)
-						.replace("%item%", is.getData().getItemType().name().toLowerCase()));
+				if (notifyPlayer)
+				{
+					e.getWhoClicked().sendMessage(ChatColor.translateAlternateColorCodes('&', message)
+							.replace("%item%", is.getData().getItemType().name().toLowerCase()));
+				}
 			}
 		}
 	}

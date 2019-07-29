@@ -1,6 +1,6 @@
 name: LimitCrafting
 main: me.tezk.limitcrafting.LimitCraftingPlugin
-version: 4.0
+version: 4.1
 author: Tom Micallef
 description: Limit players from crafting items.
 
