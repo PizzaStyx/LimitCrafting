@@ -3,16 +3,19 @@ LimitCrafting is the lightweight solution to disable crafting configurable recip
 
 ### Configuration
 ```
-# Set to false if you want to disable plugin
+# Set to false if you want to disable the plugin entirely.
 enabled: true
-# Message that is sent to the player after failed attempt
-message: '&cYou cannot craft items, sorry.'
-# Set to true if you want to block ALL items in the game from crafting
+# Enable sending message to players when crafting is denied.
+notify-player: true
+# Message that is sent to the player if notify-player is set to true.
+message: '&cYou aren''t permitted to craft item %item%'
+# Set to true if you want to block ALL crafting.
 block-all-items: false
-# List of materials you would like to block from crafting if block-all-items is set to false
+# List of materials you would like to block from crafting if block-all-items is set to false.
 items:
   - 'LADDER'
   - 'TORCH'
+  - 'HOPPER'
   - 'GOLDEN_APPLE:1'
 ```
 ### Commands
